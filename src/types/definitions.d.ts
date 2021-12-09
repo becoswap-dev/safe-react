@@ -7,9 +7,12 @@ export {}
 declare global {
   interface Window {
     isDesktop?: boolean
-    ethereum?: {
+    kardiachain?: {
       autoRefreshOnNetworkChange: boolean
       isMetaMask: boolean
+      currentProvider: {
+        isExtensionWallet: true
+      }
     }
   }
 }

@@ -5,7 +5,48 @@ import { _getChainId, getChainName } from 'src/config'
 import { setWeb3 } from './getWeb3'
 import { fetchProvider, removeProvider } from './store/actions'
 import transactionDataCheck from './transactionDataCheck'
-import { getSupportedWallets } from './utils/walletList'
+
+
+const customSDKWalletLogo = `
+	<svg 
+		height="40" 
+		viewBox="0 0 40 40" 
+		width="40" 
+		xmlns="http://www.w3.org/2000/svg"
+	>
+		<path 
+			d="m2744.99995 1155h9.99997" 
+			fill="#617bff" 
+		/>
+	</svg>
+`
+
+// create custom wallet
+const customExtensionWallet = {
+	name: 'Kai',
+	svg: customSDKWalletLogo,
+	wallet: async helpers => {
+		const { createModernProviderInterface } = helpers
+		const provider = window.kardiachain;
+		const correctWallet = true
+
+		return {
+			provider,
+			interface: correctWallet ? createModernProviderInterface(provider) : null
+		}
+	},
+  type: "injected" as any,
+	link: 'https://some-extension-wallet.io',
+	installMessage: wallets => {
+		const { currentWallet, selectedWallet } = wallets
+		if (currentWallet) {
+			return `You have ${currentWallet} installed already but if you would prefer to use ${selectedWallet} instead, then click below to install.`
+		}
+
+		return `You will need to install ${selectedWallet} to continue. Click below to install.`
+	},
+	desktop: true
+}
 
 const getOnboardConfiguration = () => {
   let lastUsedAddress = ''
@@ -44,7 +85,7 @@ const getOnboardConfiguration = () => {
     },
     walletSelect: {
       description: 'Please select a wallet to connect to Gnosis Safe',
-      wallets: getSupportedWallets(),
+      wallets: [ customExtensionWallet ],
     },
     walletCheck: [
       { checkName: 'derivationPath' },

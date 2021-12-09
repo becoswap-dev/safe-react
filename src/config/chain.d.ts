@@ -24,6 +24,7 @@ export const CHAIN_ID: Record<ChainName, ChainId> = {
   ARBITRUM: '42161',
   AVALANCHE: '43114',
   VOLTA: '73799',
+  KAI: "138"
 }
 
 // Values match that required of onboard and returned by CGW
@@ -43,4 +44,5 @@ export enum WALLETS {
   OPERA_TOUCH = 'operaTouch',
   LATTICE = 'lattice',
   KEYSTONE = 'keystone',
+  KAI="kai"
 }

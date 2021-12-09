@@ -42,7 +42,7 @@ export const enabledFeatures = (version?: string): FEATURES[] => {
 }
 
 export const hasFeature = (name: FEATURES, version?: string): boolean => {
-  return enabledFeatures(version).includes(name)
+  return false
 }
 
 interface SafeVersionInfo {
