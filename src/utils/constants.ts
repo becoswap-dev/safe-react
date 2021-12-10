@@ -3,7 +3,7 @@ import { CHAIN_ID } from 'src/config/chain.d'
 export const APP_ENV = process.env.REACT_APP_ENV
 export const NODE_ENV = process.env.NODE_ENV
 export const IS_PRODUCTION = APP_ENV === 'production'
-export const DEFAULT_CHAIN_ID = IS_PRODUCTION ? CHAIN_ID.ETHEREUM : CHAIN_ID.RINKEBY
+export const DEFAULT_CHAIN_ID = "138"
 export const PUBLIC_URL = process.env.PUBLIC_URL
 export const TX_SERVICE_VERSION = '1'
 export const LS_NAMESPACE = 'SAFE'
@@ -35,8 +35,8 @@ export const CONFIG_SERVICE_URL =
     : 'https://config.kaisafe.com/api/v1'
 export const GATEWAY_URL =
   IS_PRODUCTION || window.location.hash === '#prod'
-    ? 'https://config.kaisafe.com/api/v1'
-    : 'https://config.kaisafe.com/api/v1'
+    ? 'http://localhost:8001/v1'
+    : 'http://localhost:8001/v1'
 export const IPFS_GATEWAY = process.env.REACT_APP_IPFS_GATEWAY
 export const SPENDING_LIMIT_MODULE_ADDRESS =
   process.env.REACT_APP_SPENDING_LIMIT_MODULE_ADDRESS || '0xCFbFaC74C26F8647cBDb8c5caf80BB5b32E43134'

@@ -108,8 +108,6 @@ export const createTransaction =
   async (dispatch: Dispatch, getState: () => AppReduxState): Promise<DispatchReturn> => {
     const state = getState()
 
-    const ready = await onboardUser()
-    if (!ready) return
 
     const { account: from, hardwareWallet, smartContractWallet } = providerSelector(state)
     const safeVersion = currentSafeCurrentVersion(state) as string

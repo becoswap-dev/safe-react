@@ -85,13 +85,14 @@ export const mustBeAddressHash = memoize((address: string): ValidatorReturnType 
 })
 
 const mustHaveValidPrefix = (prefix: string): ValidatorReturnType => {
-  if (!isValidPrefix(prefix)) {
-    return 'Wrong chain prefix'
-  }
+  // if (!isValidPrefix(prefix)) {
+  //   return 'Wrong chain prefix'
+  // }
 
-  if (prefix !== getShortName()) {
-    return 'The chain prefix must match the current network'
-  }
+  // if (prefix !== getShortName()) {
+  //   return 'The chain prefix must match the current network'
+  // }
+  return ""
 }
 
 export const mustBeEthereumAddress = (fullAddress: string): ValidatorReturnType => {

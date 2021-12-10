@@ -46,7 +46,6 @@ export const generateSignaturesFromTxConfirmations = (
   // The constant parts need to be sorted so that the recovered signers are sorted ascending
   // (natural order) by address (not checksummed).
   confirmationsMap = confirmationsMap.sort((ownerA, ownerB) => ownerA.owner.localeCompare(ownerB.owner))
-
   let sigs = '0x'
   confirmationsMap.forEach(({ signature, owner }) => {
     if (signature) {
