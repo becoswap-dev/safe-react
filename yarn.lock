@@ -2149,8 +2149,9 @@
     "@gnosis.pm/safe-core-sdk-types" "^0.1.1"
     ethereumjs-util "^7.0.10"
 
-"@gnosis.pm/safe-deployments@file:../safe-deployments":
+"@gnosis.pm/safe-deployments@git://github.com/becoswap/safe-deployments.git":
   version "1.5.0"
+  resolved "git://github.com/becoswap/safe-deployments.git#8b3351e5c363e106674c093ad7930ab1bf9f4cb7"
 
 "@gnosis.pm/safe-react-components@^0.9.0":
   version "0.9.0"
