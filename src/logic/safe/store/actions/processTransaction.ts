@@ -73,8 +73,8 @@ export const processTransaction =
     thresholdReached,
   }: ProcessTransactionArgs): ProcessTransactionAction =>
   async (dispatch: Dispatch, getState: () => AppReduxState): Promise<DispatchReturn> => {
-    const ready = await onboardUser()
-    if (!ready) return
+    // const ready = await onboardUser()
+    // if (!ready) return
 
     const state = getState()
 

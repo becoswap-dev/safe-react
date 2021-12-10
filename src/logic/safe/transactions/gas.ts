@@ -80,6 +80,7 @@ export const estimateTransactionGasLimit = async ({
   if (!from) {
     throw new Error('No from provided for approving or execute transaction')
   }
+
   if (isExecution) {
     return estimateGasForTransactionExecution({
       safeAddress,
@@ -147,13 +148,8 @@ const estimateGasForTransactionExecution = async ({
   const sigs = generateSignaturesFromTxConfirmations(txConfirmations, approvalAndExecution ? from : undefined)
 
   const estimationData = safeInstance.methods
-    .execTransaction(txRecipient, txAmount, txData, operation, 10000000, 0, gasPrice, gasToken, refundReceiver, sigs)
+    .execTransaction(txRecipient, txAmount, txData, operation, safeTxGas, 0, gasPrice, gasToken, refundReceiver, sigs)
     .encodeABI()
-
-    console.log({
-      txRecipient, txAmount, txData, operation, safeTxGas, baseGas: 0, gasPrice, gasToken, refundReceiver, sigs
-    })
-
 
   return calculateGasOf({
     data: estimationData,
